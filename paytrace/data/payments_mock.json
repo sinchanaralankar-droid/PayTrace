@@ -1,0 +1,198 @@
+{
+  "PAY-1001": {
+    "id": "PAY-1001",
+    "status": "COMPLETED",
+    "purchase_units": [
+      {
+        "amount": {
+          "currency_code": "USD",
+          "value": "49.99"
+        },
+        "payments": {
+          "captures": [
+            {
+              "id": "CAP-PAY-1001",
+              "status": "COMPLETED",
+              "amount": {
+                "currency_code": "USD",
+                "value": "49.99"
+              },
+              "invoice_id": "ORD-1001",
+              "seller_receivable_breakdown": {
+                "gross_amount": {
+                  "currency_code": "USD",
+                  "value": "49.99"
+                },
+                "paypal_fee": {
+                  "currency_code": "USD",
+                  "value": "1.75"
+                },
+                "net_amount": {
+                  "currency_code": "USD",
+                  "value": "48.24"
+                }
+              }
+            }
+          ],
+          "refunds": []
+        }
+      }
+    ]
+  },
+  "PAY-1002": {
+    "id": "PAY-1002",
+    "status": "APPROVED",
+    "purchase_units": [
+      {
+        "amount": {
+          "currency_code": "USD",
+          "value": "120.00"
+        },
+        "payments": {
+          "captures": [
+            {
+              "id": "CAP-PAY-1002",
+              "status": "PENDING",
+              "amount": {
+                "currency_code": "USD",
+                "value": "120.00"
+              },
+              "invoice_id": "ORD-1002",
+              "status_details": {
+                "reason": "PENDING_REVIEW"
+              }
+            }
+          ],
+          "refunds": []
+        }
+      }
+    ]
+  },
+  "PAY-1003": {
+    "id": "PAY-1003",
+    "status": "COMPLETED",
+    "purchase_units": [
+      {
+        "amount": {
+          "currency_code": "USD",
+          "value": "50.00"
+        },
+        "payments": {
+          "captures": [
+            {
+              "id": "CAP-PAY-1003",
+              "status": "COMPLETED",
+              "amount": {
+                "currency_code": "USD",
+                "value": "50.00"
+              },
+              "invoice_id": "ORD-1003",
+              "seller_receivable_breakdown": {
+                "gross_amount": {
+                  "currency_code": "USD",
+                  "value": "50.00"
+                },
+                "paypal_fee": {
+                  "currency_code": "USD",
+                  "value": "1.75"
+                },
+                "net_amount": {
+                  "currency_code": "USD",
+                  "value": "48.25"
+                }
+              }
+            }
+          ],
+          "refunds": []
+        }
+      }
+    ]
+  },
+  "PAY-1004": {
+    "id": "PAY-1004",
+    "status": "COMPLETED",
+    "purchase_units": [
+      {
+        "amount": {
+          "currency_code": "USD",
+          "value": "35.50"
+        },
+        "payments": {
+          "captures": [
+            {
+              "id": "CAP-PAY-1004",
+              "status": "REFUNDED",
+              "amount": {
+                "currency_code": "USD",
+                "value": "35.50"
+              },
+              "invoice_id": "ORD-1004"
+            }
+          ],
+          "refunds": [
+            {
+              "id": "REF-PAY-1004",
+              "status": "COMPLETED",
+              "amount": {
+                "currency_code": "USD",
+                "value": "35.50"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "PAY-1005": {
+    "id": "PAY-1005",
+    "status": "COMPLETED",
+    "purchase_units": [
+      {
+        "amount": {
+          "currency_code": "USD",
+          "value": "60.00"
+        },
+        "payments": {
+          "captures": [
+            {
+              "id": "CAP-PAY-1005",
+              "status": "COMPLETED",
+              "amount": {
+                "currency_code": "USD",
+                "value": "60.00"
+              },
+              "invoice_id": "ORD-9999"
+            }
+          ],
+          "refunds": []
+        }
+      }
+    ]
+  },
+  "PAY-1006": {
+    "id": "PAY-1006",
+    "status": "COMPLETED",
+    "purchase_units": [
+      {
+        "amount": {
+          "currency_code": "EUR",
+          "value": "75.00"
+        },
+        "payments": {
+          "captures": [
+            {
+              "id": "CAP-PAY-1006",
+              "status": "COMPLETED",
+              "amount": {
+                "currency_code": "EUR",
+                "value": "75.00"
+              },
+              "invoice_id": "ORD-1006"
+            }
+          ],
+          "refunds": []
+        }
+      }
+    ]
+  }
+}
