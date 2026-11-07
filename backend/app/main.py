@@ -1,6 +1,6 @@
 import os
 from contextlib import asynccontextmanager
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
 from app.database.database import init_db
@@ -46,6 +46,32 @@ app.add_middleware(
 
 # Mount API routes
 app.include_router(api_router)
+
+# Mount frontend/dist if available to serve full UI
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
+frontend_dist = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
+if frontend_dist.exists():
+    assets_dir = frontend_dist / "assets"
+    if assets_dir.exists():
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
+
+    logo_file = frontend_dist / "logo.png"
+    if not logo_file.exists():
+        public_logo = Path(__file__).resolve().parent.parent.parent / "frontend" / "public" / "logo.png"
+        if public_logo.exists():
+            import shutil
+            shutil.copy(public_logo, frontend_dist / "logo.png")
+
+    @app.get("/{full_path:path}")
+    async def serve_spa(full_path: str):
+        if full_path.startswith("api"):
+            raise HTTPException(status_code=404, detail="Not Found")
+        target_file = frontend_dist / full_path
+        if target_file.is_file():
+            return FileResponse(target_file)
+        return FileResponse(frontend_dist / "index.html")
 
 if __name__ == "__main__":
     import uvicorn
