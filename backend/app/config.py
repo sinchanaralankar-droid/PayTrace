@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     GOOGLE_GENAI_MODEL: str = "gemini-3.5-flash"
     GOOGLE_GENAI_USE_ENTERPRISE: int = 0
 
-    DATABASE_PATH: Path = BASE_DIR / "paytrace.db"
+    DATABASE_PATH: Path = Path("/tmp/paytrace.db") if os.environ.get("VERCEL") else (BASE_DIR / "paytrace.db")
     
     APP_NAME: str = "PayTrace - Ship or Hold?"
     APP_VERSION: str = "1.0.0"
@@ -23,7 +23,8 @@ class Settings(BaseSettings):
         "http://localhost:5173",
         "http://localhost:3000",
         "http://127.0.0.1:5173",
-        "http://127.0.0.1:3000"
+        "http://127.0.0.1:3000",
+        "*"
     ]
 
     model_config = SettingsConfigDict(
